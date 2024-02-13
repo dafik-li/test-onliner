@@ -17,18 +17,18 @@ public class CatalogTest extends AbstractTest {
         page.open();
         sa.assertTrue(page.isPageOpened(), "page is not opened");
 
-        List<Integer> xPosition = new ArrayList<>();
+        List<Integer> xPositions = new ArrayList<>();
         for (CatalogNavigation item : CatalogNavigation.values()) {
-            xPosition.add(page.getItemLocation(item).getX());
+            xPositions.add(page.getItemLocation(item).getX());
         }
-        sa.assertTrue(positionItems(xPosition),"elements are all right");
+        sa.assertTrue(positionItems(xPositions),"elements are all right");
 
         sa.assertAll();
     }
 
-    private boolean positionItems(List<Integer> xPosition) {
+    private boolean positionItems(List<Integer> positions) {
         int startValueX = 0;
-        for (int x : xPosition) {
+        for (int x : positions) {
             if (x <= startValueX) {
                 return false;
             }
