@@ -26,10 +26,10 @@ public class CatalogTest extends AbstractTest {
         sa.assertAll();
     }
 
-    private boolean positionItems(List<Integer> positions) {
+    private boolean positionItems(List<Integer> xPositions) {
         int startValueX = 0;
-        for (int x : positions) {
-            if (x <= startValueX) {
+        for (int x : xPositions) {
+            if (x < startValueX) {
                 return false;
             }
             startValueX = x;

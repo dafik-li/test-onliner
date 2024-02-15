@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 public class CatalogNavigationBarPage extends AbstractPage {
 
 
-    @FindBy(xpath = "//li[./span[@class='catalog-navigation-classifier__item-title']/span[text() = '%s']]")
+    @FindBy(xpath = "//span[@class = 'catalog-navigation-classifier__item-title-wrapper']['%s']")
     private ExtendedWebElement item;
 
 
@@ -28,3 +28,4 @@ public class CatalogNavigationBarPage extends AbstractPage {
         super.openURL(Configuration.getRequired("home_url"));
     }
 }
+//li[./span[@class='catalog-navigation-classifier__item-title']/span[text() = '%s']]
