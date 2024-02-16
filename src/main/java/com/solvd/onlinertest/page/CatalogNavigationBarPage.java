@@ -11,8 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class CatalogNavigationBarPage extends AbstractPage {
 
-
-    @FindBy(xpath = "//li[./span[@class='catalog-navigation-classifier__item-title']/span['%s']]")
+    @FindBy(xpath = "//li[./span[@class='catalog-navigation-classifier__item-title']/span[text() = '%s']]")
     private ExtendedWebElement item;
 
 
@@ -21,12 +20,10 @@ public class CatalogNavigationBarPage extends AbstractPage {
         setPageOpeningStrategy(PageOpeningStrategy.BY_URL);
     }
     public Point getItemLocation(CatalogNavigation enumItem) {
-        return item.format(enumItem.getName()).getLocation();
+        return item.format(enumItem.getName().replace("и ", "и\u00a0")).getLocation();
     }
     @Override
     public void open() {
         super.openURL(Configuration.getRequired("home_url"));
     }
 }
-//li[./span[@class='catalog-navigation-classifier__item-title']/span[text() = '%s']]
-//span[@class = 'catalog-navigation-classifier__item-title-wrapper']['%s']
