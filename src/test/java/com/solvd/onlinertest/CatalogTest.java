@@ -21,12 +21,12 @@ public class CatalogTest extends AbstractTest {
         for (CatalogNavigation item : CatalogNavigation.values()) {
             xPositions.add(page.getItemLocation(item).getX());
         }
-        sa.assertTrue(positionItems(xPositions),"elements are not all right");
+        sa.assertTrue(isPositionItems(xPositions),"elements are not all right");
 
         sa.assertAll();
     }
 
-    private boolean positionItems(List<Integer> xPositions) {
+    private boolean isPositionItems(List<Integer> xPositions) {
         int startValueX = 0;
         for (int x : xPositions) {
             x++;
